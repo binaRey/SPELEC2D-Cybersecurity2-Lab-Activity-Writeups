@@ -1,0 +1,1454 @@
+{
+  "version": "2.6.2",
+  "release_version": "v.1",
+  "released_at": "2026-09-16",
+  "summary": {
+    "title": "CartCo Checkout System - Threat Model",
+    "owner": "Reynan S. Cortado",
+    "description": "Formative STRIDE threat model for CartCo checkout system.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "New STRIDE diagram",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "cells": [
+          {
+            "position": {
+              "x": 270,
+              "y": 10
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Customer / Web Browser"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "5aa8030d-3bae-4280-b502-379ef5dcb5d6"
+                },
+                {
+                  "group": "right",
+                  "id": "10bc4e79-2a16-495d-872d-cc2385ca2e0c"
+                },
+                {
+                  "group": "bottom",
+                  "id": "21dbad76-61d5-47f0-b4d6-029958daa368"
+                },
+                {
+                  "group": "left",
+                  "id": "5c2d0f8e-abac-476f-9432-65e71cf7fc75"
+                }
+              ]
+            },
+            "id": "27e26eb2-31cc-4cb5-b0aa-f12b2f1bf9c5",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Customer / Web Browser",
+              "description": "",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": [
+                {
+                  "id": "fb41690f-917b-4f18-96ed-60d606de1a24",
+                  "title": "Spoofing Identity",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An attacker steals a customer's session cookies or credentials via cross-site scripting (XSS) or network sniffing to impersonate them.",
+                  "mitigation": "Enforce HTTPS strictly (HSTS), use HttpOnly, Secure, and SameSite flags on session cookies, and implement multi-factor authentication (MFA).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                },
+                {
+                  "id": "8e046074-7f13-4569-8248-fb24cefc0d45",
+                  "title": "Repudiation",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "A customer denies placing an unauthorized order or initiating a cart action due to insufficient client-side transaction logging or non-repudiation controls.",
+                  "mitigation": "Maintain secure, immutable server-side audit trails and transaction logs tied to the user’s authenticated session.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 2
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 143.75,
+              "y": 450
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Third-Party Payment Gateway"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "5aa8030d-3bae-4280-b502-379ef5dcb5d6"
+                },
+                {
+                  "group": "right",
+                  "id": "10bc4e79-2a16-495d-872d-cc2385ca2e0c"
+                },
+                {
+                  "group": "bottom",
+                  "id": "21dbad76-61d5-47f0-b4d6-029958daa368"
+                },
+                {
+                  "group": "left",
+                  "id": "5c2d0f8e-abac-476f-9432-65e71cf7fc75"
+                }
+              ]
+            },
+            "id": "15d85379-7876-43a9-aff1-da95f8034a8f",
+            "zIndex": 2,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Third-Party Payment Gateway",
+              "description": "",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": [
+                {
+                  "id": "27d94ed5-affa-41b1-8e31-f0841fafc5a1",
+                  "title": "Spoofing Identity",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "A malicious actor intercepts webhooks or API callbacks by impersonating the payment gateway, sending fake payment success confirmations to trick the application into fulfilling unpaid orders.",
+                  "mitigation": "Validate cryptographic webhook signatures (such as HMAC secrets/tokens) provided by the payment gateway and enforce strict server-to-server TLS certificate validation.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 29,
+                  "score": ""
+                },
+                {
+                  "id": "f4c62659-9ed9-49f4-b587-1a7c2e741c45",
+                  "title": "Repudiation",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Repudiation",
+                  "description": "A customer or the payment provider disputes a transaction, and due to a lack of detailed server-side API response logging, the system cannot prove the exact authorization status received.",
+                  "mitigation": "Log all raw API request and response payloads, transaction IDs, and timestamps from the payment gateway into an immutable audit trail.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 30,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "repudiation": 1
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 170,
+              "y": 160
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "1.0 Web Application Server"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "1ddafa2f-a9a6-43f7-b5b6-979376f78846"
+                },
+                {
+                  "group": "right",
+                  "id": "cbe77639-bcf8-43f3-be36-f2ce4842543a"
+                },
+                {
+                  "group": "bottom",
+                  "id": "91d35e00-8d72-4e90-b445-429c9b2a8fe6"
+                },
+                {
+                  "group": "left",
+                  "id": "f0988fd6-3c32-4f91-888d-540da244ad7e"
+                }
+              ]
+            },
+            "id": "2a089f59-23bb-4aac-bba1-17d5bbc7100f",
+            "zIndex": 3,
+            "data": {
+              "type": "tm.Process",
+              "name": "1.0 Web Application Server",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "0bdddbff-f396-43d2-a2fa-a609391227a2",
+                  "title": "Spoofing Identity",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An attacker uses stolen session tokens or credential stuffing to impersonate a legitimate user or administrative account interacting with the web application server.",
+                  "mitigation": "Implement robust authentication mechanisms, secure session management (cryptographically strong tokens, short session timeouts), and multi-factor authentication (MFA).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
+                },
+                {
+                  "id": "d29fb0de-2b2a-41f0-9502-425832a6a3bb",
+                  "title": "Tampering with Data",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker exploits input validation vulnerabilities (e.g., SQL injection, cross-site scripting, or parameter pollution) to modify user data, database records, or application files handled by the server.",
+                  "mitigation": "Enforce strict server-side input validation, parameterization, escaping, and parameterized queries/ORMs for all database interactions.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
+                },
+                {
+                  "id": "1e12e1f1-0131-4f01-a84d-94376a7ec4fa",
+                  "title": "Repudiation",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Repudiation",
+                  "description": "Users or attackers deny performing malicious actions or unauthorized transactions because the server lacks detailed, immutable audit logs.",
+                  "mitigation": "Implement comprehensive, centralized logging and secure audit trails that capture user IDs, timestamps, and critical actions (such as cart modifications and checkout attempts).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                },
+                {
+                  "id": "e96dc62f-e476-4cd1-8f54-3dcfb4f40425",
+                  "title": "Information Disclosure",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Misconfigured server error messages, unencrypted data transit, or vulnerable endpoints expose sensitive customer data, API keys, or internal system architecture details.",
+                  "mitigation": "Enforce end-to-end TLS encryption, disable verbose stack traces or debug modes in production, and properly secure environment variables and configuration files.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                },
+                {
+                  "id": "fb925d4a-2072-41df-8854-4f8ba675e162",
+                  "title": "Denial of Service",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Enforce end-to-end TLS encryption, disable verbose stack traces or debug modes in production, and properly secure environment variables and configuration files.",
+                  "mitigation": "Implement rate limiting, Web Application Firewall (WAF) protection, DDoS mitigation services, and resource quotas/timeouts.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                },
+                {
+                  "id": "1b478865-4ec8-40c9-9183-216aa3998c7c",
+                  "title": "Elevation of Privilege",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "Flawed access control checks allow a standard authenticated user to execute administrative API endpoints, access other users' cart data, or execute remote code.",
+                  "mitigation": "Implement robust Role-Based Access Control (RBAC) and verify authorization permissions on every server-side request handler before processing.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "tampering": 2,
+                "repudiation": 2,
+                "informationDisclosure": 2,
+                "denialOfService": 2,
+                "elevationOfPrivilege": 2
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 170,
+              "y": 290
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "2.0 Checkout & Order Service"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "1ddafa2f-a9a6-43f7-b5b6-979376f78846"
+                },
+                {
+                  "group": "right",
+                  "id": "cbe77639-bcf8-43f3-be36-f2ce4842543a"
+                },
+                {
+                  "group": "bottom",
+                  "id": "91d35e00-8d72-4e90-b445-429c9b2a8fe6"
+                },
+                {
+                  "group": "left",
+                  "id": "f0988fd6-3c32-4f91-888d-540da244ad7e"
+                }
+              ]
+            },
+            "id": "69f960c6-86de-4052-b74c-ca304e9a7210",
+            "zIndex": 4,
+            "data": {
+              "type": "tm.Process",
+              "name": "2.0 Checkout & Order Service",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "f423505b-7877-4125-8250-383cb18c16f3",
+                  "title": "Spoofing Identity",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An unauthorized service or malicious script attempts to impersonate the web application server when calling checkout and order processing APIs.",
+                  "mitigation": "Implement strict service-to-service authentication using mutual TLS (mTLS), API keys, or JSON Web Tokens (JWT) with digital signatures.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": ""
+                },
+                {
+                  "id": "cf8baf98-e5c3-4a3e-85b3-0967d65751aa",
+                  "title": "Tampering with Data",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker intercepts or alters transaction payloads (such as item pricing, discounts, or quantities) in transit between the web server and the order processing service.",
+                  "mitigation": "Enforce strict cryptographic integrity checks, data validation, and secure internal communication channels (TLS encryption for all inter-service traffic).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": ""
+                },
+                {
+                  "id": "00f65f99-8432-432f-86ec-f22914c91d86",
+                  "title": "Repudiation",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "A user denies completing a financial transaction, or the internal service fails to record a definitive record of an order submission, leading to billing disputes.",
+                  "mitigation": "Implement secure, non-repudiable transaction logging with cryptographic hashing of order states tied to unique timestamps and user identifiers.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": ""
+                },
+                {
+                  "id": "549fd69b-306a-4c70-88ad-155d7a24d8be",
+                  "title": "Information Disclosure",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Payment transaction details, credit card tokens, or customer billing records are logged insecurely or exposed in plaintext via internal monitoring tools or error responses.",
+                  "mitigation": "Encrypt sensitive financial data at rest and in transit, mask/tokenize credit card data to comply with PCI-DSS standards, and restrict log verbosity.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": ""
+                },
+                {
+                  "id": "42eef732-05f8-4e72-8111-d37ff455aa3a",
+                  "title": "Denial of Service",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "A flood of automated fake checkout requests overwhelms the checkout service, exhausting its processing capacity and preventing legitimate orders from completing.",
+                  "mitigation": "Implement rate limiting, request queuing, and transactional timeouts to gracefully handle traffic spikes and prevent resource exhaustion.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": ""
+                },
+                {
+                  "id": "6c091f34-9d46-4940-a9dc-7daf4cd8a0c3",
+                  "title": "Privilege",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": "A compromised front-end or low-privileged service account successfully executes privileged backend functions, such as manually approving refunds or bypassing payment verification steps.",
+                  "mitigation": "Implement Principle of Least Privilege (PoLP) across internal service accounts, enforce strict role boundaries, and validate authorization tokens on every transaction API call.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 2,
+                "repudiation": 1,
+                "informationDisclosure": 2,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 3
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 400,
+              "y": 160
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "DS1: Cart & User Database"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "81020044-d448-41af-911b-62ed49c0bc49"
+                },
+                {
+                  "group": "right",
+                  "id": "b630c652-bc26-4604-9e38-72aa1f374848"
+                },
+                {
+                  "group": "bottom",
+                  "id": "40c5501f-ef6f-4078-b984-0aa7fa5bc657"
+                },
+                {
+                  "group": "left",
+                  "id": "3d0deb8d-dfa8-4807-af1e-1bb3333bd36f"
+                }
+              ]
+            },
+            "id": "0d8a44b6-b6ae-417d-82a6-28b1f92f0546",
+            "zIndex": 5,
+            "data": {
+              "type": "tm.Store",
+              "name": "DS1: Cart & User Database",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "bed88a0a-bf78-4da8-ba7a-75d596d55899",
+                  "title": "Tampering with Data",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "An attacker exploits database vulnerabilities or injection flaws to directly modify prices, user profiles, or cart quantities stored in the database.",
+                  "mitigation": "Use parameterized queries/ORMs, enforce database integrity constraints, and apply strict access control lists (ACLs).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
+                },
+                {
+                  "id": "f0cfed31-c990-40b1-9b37-ff425dd69b9b",
+                  "title": "Repudiation",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Malicious database modifications or unauthorized data queries cannot be tracked to a specific user or service due to a lack of database query auditing.",
+                  "mitigation": "Enable comprehensive database activity monitoring (DAM) and immutable audit logging for all write, update, and administrative actions.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                },
+                {
+                  "id": "94d94eb1-b974-492d-89e8-a208f7b790d7",
+                  "title": "Information Disclosure",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Unauthorized access or an unencrypted database backup exposes sensitive user data, PII, and active shopping cart contents.",
+                  "mitigation": "Encrypt all data at rest using robust encryption standards (e.g., AES-256) and enforce encryption in transit for all database connections.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": ""
+                },
+                {
+                  "id": "59134de8-ec29-4600-b8df-23010c4d641f",
+                  "title": "Denial of Service",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Maliciously crafted queries or database connection flooding exhausts database resources, preventing the web app from reading or writing user carts.",
+                  "mitigation": "Implement query performance tuning, connection pooling limits, resource throttling, and automated database failover clusters.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 2
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 400,
+              "y": 290
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "DS2: Order History Database"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "81020044-d448-41af-911b-62ed49c0bc49"
+                },
+                {
+                  "group": "right",
+                  "id": "b630c652-bc26-4604-9e38-72aa1f374848"
+                },
+                {
+                  "group": "bottom",
+                  "id": "40c5501f-ef6f-4078-b984-0aa7fa5bc657"
+                },
+                {
+                  "group": "left",
+                  "id": "3d0deb8d-dfa8-4807-af1e-1bb3333bd36f"
+                }
+              ]
+            },
+            "id": "416ea5ef-74e6-4a2b-b051-f662a08a26be",
+            "zIndex": 6,
+            "data": {
+              "type": "tm.Store",
+              "name": "DS2: Order History Database",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "586743b4-c8ab-475a-a6f3-9dba721a1f63",
+                  "title": "Tampering with Data",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker with compromised credentials or database injection access modifies historical order records, alters transaction amounts, or deletes completed order logs.",
+                  "mitigation": "Implement strict database access controls (Principle of Least Privilege), use parameterized queries to prevent SQL injection, and maintain immutable, append-only transaction logs.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": ""
+                },
+                {
+                  "id": "48f51d66-0a62-43a2-965e-4229096a1fc9",
+                  "title": "Repudiation",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "The database lacks sufficient transaction logging or audit trails, making it impossible to prove who accessed, modified, or deleted sensitive order history records.",
+                  "mitigation": "Enable comprehensive database audit logging (capturing who, what, when, and from where records were modified or accessed) and store logs in a secure, write-once-read-many (WORM) storage.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": ""
+                },
+                {
+                  "id": "eb19fd8f-6e03-4698-b169-14607942351a",
+                  "title": "Information Disclosure",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Sensitive customer order details, billing histories, and personally identifiable information (PII) stored in the database are exposed via unencrypted storage or unauthorized data dumps.",
+                  "mitigation": "Encrypt all data at rest using strong industry-standard encryption (e.g., AES-256), enforce column-level encryption for sensitive fields, and restrict direct administrative access.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": ""
+                },
+                {
+                  "id": "f41dc3ae-3304-464b-b934-26ac24604921",
+                  "title": "Denial of Service",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "A high volume of complex analytical queries or resource-intensive database transactions exhausts database connection pools and CPU resources, causing service failure.",
+                  "mitigation": "Implement connection pooling limits, query timeout configurations, rate limiting on reporting endpoints, and database resource provisioning/scaling",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "HTTP/HTTPS Requests",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "HTTP/HTTPS Requests"
+            ],
+            "id": "38e55678-f61c-4115-8ccb-8a34878dd65c",
+            "source": {
+              "cell": "27e26eb2-31cc-4cb5-b0aa-f12b2f1bf9c5",
+              "port": "21dbad76-61d5-47f0-b4d6-029958daa368"
+            },
+            "target": {
+              "cell": "2a089f59-23bb-4aac-bba1-17d5bbc7100f",
+              "port": "1ddafa2f-a9a6-43f7-b5b6-979376f78846"
+            },
+            "vertices": [
+              {
+                "x": 280,
+                "y": 90
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Internet Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Internet Boundary"
+            ],
+            "id": "d5cc53a7-475b-437a-b512-6329c9fd238a",
+            "source": {
+              "x": 20,
+              "y": 124
+            },
+            "target": {
+              "x": 640,
+              "y": 120
+            },
+            "vertices": [
+              {
+                "x": 600,
+                "y": 124
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Processed Orders",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Processed Orders"
+            ],
+            "id": "97a75dc4-7fd5-423f-b87d-51b8e0bd8e4d",
+            "source": {
+              "x": 200,
+              "y": 230
+            },
+            "target": {
+              "cell": "69f960c6-86de-4052-b74c-ca304e9a7210",
+              "port": "1ddafa2f-a9a6-43f7-b5b6-979376f78846"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Payment Authorization",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Payment Authorization"
+            ],
+            "id": "fe4df397-75a8-4f52-9fbe-00a62b90ab72",
+            "source": {
+              "x": 200,
+              "y": 350
+            },
+            "target": {
+              "cell": "15d85379-7876-43a9-aff1-da95f8034a8f",
+              "port": "5aa8030d-3bae-4280-b502-379ef5dcb5d6"
+            },
+            "vertices": [
+              {
+                "x": 200,
+                "y": 400
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Internal Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Internal Boundary"
+            ],
+            "id": "427561a4-cf28-4658-89d1-472b379c73ea",
+            "source": {
+              "x": 24,
+              "y": 267
+            },
+            "target": {
+              "x": 660,
+              "y": 270
+            }
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Third-Party Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Third-Party Boundary"
+            ],
+            "id": "0ad0e561-e44e-457f-b645-a90c2009a519",
+            "source": {
+              "x": 24,
+              "y": 411
+            },
+            "target": {
+              "x": 650,
+              "y": 410
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Read/Write Cart & User Data",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Read/Write Cart & User Data"
+            ],
+            "id": "c4105e61-159f-477b-81ff-f25309b041ef",
+            "source": {
+              "cell": "2a089f59-23bb-4aac-bba1-17d5bbc7100f",
+              "port": "cbe77639-bcf8-43f3-be36-f2ce4842543a"
+            },
+            "target": {
+              "cell": "0d8a44b6-b6ae-417d-82a6-28b1f92f0546",
+              "port": "3d0deb8d-dfa8-4807-af1e-1bb3333bd36f"
+            },
+            "vertices": [
+              {
+                "x": 300,
+                "y": 160
+              },
+              {
+                "x": 330,
+                "y": 160
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Write Final Transaction Logs",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Write Final Transaction Logs"
+            ],
+            "id": "2f33f8aa-c0c5-4a8a-bcd9-1529ad930079",
+            "source": {
+              "cell": "69f960c6-86de-4052-b74c-ca304e9a7210",
+              "port": "cbe77639-bcf8-43f3-be36-f2ce4842543a"
+            },
+            "target": {
+              "cell": "416ea5ef-74e6-4a2b-b051-f662a08a26be",
+              "port": "3d0deb8d-dfa8-4807-af1e-1bb3333bd36f"
+            },
+            "vertices": [
+              {
+                "x": 300,
+                "y": 300
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "diagramTop": 2,
+    "reviewer": "",
+    "threatTop": 30
+  }
+}
